@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: 04502b2b148a51b42a5627df505b0b1a
-timeCreated: 1489093552
+guid: 36bdb2d21109ed54e900d4dfc1fd1949
+timeCreated: 1491856694
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: dot
-    21300002: dot_unable
-    21300004: dot_able
+    21300000: block_green
+    21300002: block_yellow
+    21300004: block_red
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -43,7 +43,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 8
+  spritePixelsToUnits: 34
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -54,7 +54,7 @@ TextureImporter:
   textureFormatSet: 0
   platformSettings:
   - buildTarget: DefaultTexturePlatform
-    maxTextureSize: 128
+    maxTextureSize: 2048
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
@@ -73,39 +73,39 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dot
+      name: block_green
       rect:
         serializedVersion: 2
-        x: 7
-        y: 111
-        width: 8
-        height: 8
+        x: 2
+        y: 92
+        width: 34
+        height: 34
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dot_unable
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 111
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: dot_able
+      name: block_yellow
       rect:
         serializedVersion: 2
         x: 40
-        y: 111
-        width: 8
-        height: 8
+        y: 92
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: block_red
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 92
+        width: 34
+        height: 34
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
