@@ -1,7 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-
+using UnityEngine;
 public class Nim : MonoBehaviour
 {
 	private bool lastLoses;
@@ -9,6 +8,9 @@ public class Nim : MonoBehaviour
 	private int[] boardState;
 	private int largestUnbalanced;
 	private int operatingRow;
+
+	void Start (){
+	}
 
 	public bool getlastLoses() {
 		return this.lastLoses;
@@ -101,7 +103,7 @@ public class Nim : MonoBehaviour
 				nonZero.Add(i);
 			}
 		}
-		Random seed = new Random();
+		System.Random seed = new System.Random();
 		int index = seed.Next(nonZero.Count);
 		this.boardState[index] = seed.Next(boardState[index] - 1);
 	}
@@ -121,6 +123,13 @@ public class Nim : MonoBehaviour
 		}
 	}
 
+	public void UpdateBoardState(Board board) {
+		int[] tempBoardState = new int[board.length];
+		for (int i=0; i<board.length; i++) {
+			tempBoardState[i]=board[i].length;
+		}
+		this.boardState=tempBoardState;
+	}
 	public void CpuTurn() {
 		this.LargestUnbalanced();
 		this.IsCritical();
@@ -135,9 +144,9 @@ public class Nim : MonoBehaviour
 
 	public void PrintBoardState() {
 		for (int i=0; i<this.boardState.Length; i++) {
-			Console.Write (this.boardState [i] + ", ");
+			System.Console.Write (this.boardState [i] + ", ");
 		}
-		Console.WriteLine ("");
+		System.Console.WriteLine ("");
 	}
 
 	public static void Test() {
@@ -147,33 +156,11 @@ public class Nim : MonoBehaviour
 		Test.CpuTurn();
 		Test.PrintBoardState();
 	}
+		
+	void Update () {
 
-
-}
-
-	//To Do:
-	//make a getter method for important instance variables
-	//make a full turn function
-	//figure out a way to see changes in actual game when implemented
-
-
-	
-
-
-
-
-
-
-	// Use this for initialization
-	void Start ()
-	{
-	
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-	
 	}
 }
 
+// Use this for initialization
+// Update is called once per frame
