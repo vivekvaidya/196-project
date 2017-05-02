@@ -46,9 +46,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\LoadSceneOnClick.cs" />
+     <Compile Include="Assets\Scripts\Board.cs" />
      <Compile Include="Assets\Scripts\GameSettings.cs" />
      <Compile Include="Assets\Scripts\MouseClick.cs" />
+     <Compile Include="Assets\Scripts\Nim.cs" />
      <Compile Include="Assets\Scripts\QuitOnClick.cs" />
+     <Compile Include="Assets\Scripts\Spacebar.cs" />
+     <Compile Include="Assets\Scripts\StartButton.cs" />
      <Compile Include="Assets\Unity UI Samples\Scripts\ActiveStateToggler.cs" />
      <Compile Include="Assets\Unity UI Samples\Scripts\ApplicationManager.cs" />
      <Compile Include="Assets\Unity UI Samples\Scripts\ChangeColor.cs" />

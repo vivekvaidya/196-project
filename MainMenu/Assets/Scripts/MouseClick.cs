@@ -14,23 +14,6 @@ public class MouseClick : MonoBehaviour {
 	
     void Update()
     {
-        if (clicked)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                GetComponent<Rigidbody2D>().gravityScale = 0.4f;
-                GetComponent<Rigidbody2D>().angularVelocity = Random.Range(-0.1f, 0.1f);
-                Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), GetComponent<BoxCollider2D>());
-            }
-        }
-        if (GetComponent<Rigidbody2D>().angularVelocity > 0)
-        {
-            GetComponent<Rigidbody2D>().angularVelocity += 2.3f;
-        }
-        else if (GetComponent<Rigidbody2D>().angularVelocity < 0)
-        {
-            GetComponent<Rigidbody2D>().angularVelocity -= 2.3f;
-        }
 
     }
 
