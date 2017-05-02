@@ -7,8 +7,10 @@ public class Nim
 	private int[] boardState;
 	private int largestUnbalanced;
 	private int operatingRow;
+    public 
 
-	void Start (){
+	void Start () {
+        UpdateBoardState()
 	}
 
 	public bool getlastLoses() {
@@ -124,15 +126,11 @@ public class Nim
 		}
 	}
 
-//	public void UpdateBoardState(Board board) {
-//		int[] tempBoardState = new int[board.length];
-//		for (int i=0; i<board.length; i++) {
-//			tempBoardState[i]=board[i].length;
-//		}
-//		this.boardState=tempBoardState;
-//	}
+    public void UpdateBoardState(int[] board) {
+        this.boardState = board;
+    }
 
-	public void CpuTurn() {
+	public int[] CpuTurn() {
 		this.LargestUnbalanced();
 		this.IsCritical();
 		if (this.largestUnbalanced == -1) {
@@ -142,6 +140,7 @@ public class Nim
 		} else {
 			this.BalanceBoard();
 		}
+        return this.boardState;
 	}
 
 	public void PrintBoardState() {
