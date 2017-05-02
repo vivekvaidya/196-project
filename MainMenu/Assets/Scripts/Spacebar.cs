@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Spacebar : MonoBehaviour {
     public GameObject dotPrefab;
+    public Sprite block_green, block_yellow, block_red;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
 
 	}
@@ -18,11 +19,7 @@ public class Spacebar : MonoBehaviour {
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                Destroy(this.gameObject);
-                Instantiate(dotPrefab, GetComponent<Transform>().position, GetComponent<Transform>().rotation);
-                //GetComponent<Rigidbody2D>().gravityScale = 0.4f;
-                //GetComponent<Rigidbody2D>().angularVelocity = Random.Range(-0.1f, 0.1f);
-                //Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), GetComponent<BoxCollider2D>());
+                this.Delete();
             }
         }
         if (GetComponent<Rigidbody2D>().angularVelocity > 0)
@@ -33,5 +30,16 @@ public class Spacebar : MonoBehaviour {
         {
             GetComponent<Rigidbody2D>().angularVelocity -= 2.3f;
         }
+    }
+
+    public void Delete()
+    {
+        if (GetComponent<SpriteRenderer>().sprite == block_yellow)
+        {
+            GetComponent<SpriteRenderer>().sprite = block_green;
+        }
+        GetComponent<Rigidbody2D>().gravityScale = 0.4f;
+        GetComponent<Rigidbody2D>().angularVelocity = Random.Range(-0.1f, 0.1f);
+        Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), GetComponent<BoxCollider2D>());
     }
 }
