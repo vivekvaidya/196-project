@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-public class Nim : MonoBehaviour
+public class Nim 
 {
 	private bool lastLoses;
 	private bool critical;
@@ -43,10 +42,11 @@ public class Nim : MonoBehaviour
 		while (n>0) {
 			int sum = 0;
 			for (int i=0; i<this.boardState.Length; i++) {
-				sum+= (int) (((int) System.Math.Pow(2,n) & this.boardState[i]) / (int) System.Math.Pow(2,n));
+				sum+= (int) (((int) System.Math.Pow(2,n) & this.boardState[i]) / ((int) System.Math.Pow(2,n)));
 			} //iterates through array and totals up the 1 bits for a given power of 2
 			if (sum % 2 == 1) {
 				this.largestUnbalanced = n; //if its odd, the array is unbalanced
+				return;
 			} else {
 				n -= 1; //otherwise check the next largest power of
 			}
@@ -57,7 +57,7 @@ public class Nim : MonoBehaviour
 	public void IsCritical() { //upates 'critical' to whether or not the board state is critical
 		int count = 0;
 		for (int i = 0; i<this.boardState.Length; i++) {
-			if (this.boardState [i] != 0 && this.boardState [i] != 1) {
+			if (this.boardState[i] != 0 && this.boardState[i] != 1) {
 				count++;
 			} if (count>1) {
 				this.critical = false;
@@ -114,6 +114,7 @@ public class Nim : MonoBehaviour
 			if (this.boardState[i]>1) {
 				this.boardState[i] = 1;
 				this.operatingRow = i;
+				System.Console.WriteLine (6);
 				break;
 			}
 		}
@@ -123,18 +124,19 @@ public class Nim : MonoBehaviour
 		}
 	}
 
-	public void UpdateBoardState(Board board) {
-		int[] tempBoardState = new int[board.length];
-		for (int i=0; i<board.length; i++) {
-			tempBoardState[i]=board[i].length;
-		}
-		this.boardState=tempBoardState;
-	}
+//	public void UpdateBoardState(Board board) {
+//		int[] tempBoardState = new int[board.length];
+//		for (int i=0; i<board.length; i++) {
+//			tempBoardState[i]=board[i].length;
+//		}
+//		this.boardState=tempBoardState;
+//	}
+
 	public void CpuTurn() {
 		this.LargestUnbalanced();
 		this.IsCritical();
 		if (this.largestUnbalanced == -1) {
-			this.Random ();
+			this.Random();
 		} else if (this.lastLoses && this.critical) {
 			this.CriticalTurn();
 		} else {
@@ -144,18 +146,21 @@ public class Nim : MonoBehaviour
 
 	public void PrintBoardState() {
 		for (int i=0; i<this.boardState.Length; i++) {
-			System.Console.Write (this.boardState [i] + ", ");
+			System.Console.Write(this.boardState [i] + ", ");
 		}
 		System.Console.WriteLine ("");
 	}
 
-	public static void Test() {
-		int[] test = new int[] { 3, 4, 5 };
-		Nim Test = new Nim(test, true);
-		Test.PrintBoardState();
-		Test.CpuTurn();
-		Test.PrintBoardState();
+	public void Test() {
+		this.PrintBoardState();
+		this.CpuTurn();
+		this.PrintBoardState();
 	}
+
+	public static void Main() {
+		Nim testGame = new Nim(new int[] {1,2,3}, true );
+		testGame.Test();
+		}
 		
 	void Update () {
 
